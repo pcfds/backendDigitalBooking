@@ -17,13 +17,13 @@ public class CreateRoles implements CommandLineRunner {
 
     @Override
     public void  run (String...args)throws  Exception{
-        if (roleService.getByRoleName(RoleName.ADMIN).isEmpty())
+        if (roleService.getByRoleName(RoleName.ADMIN).isPresent())
         {
             Role adminRole = new Role(RoleName.ADMIN);
             roleService.save(adminRole);
         }
 
-        if (roleService.getByRoleName(RoleName.USER).isEmpty())
+        if (roleService.getByRoleName(RoleName.USER).isPresent())
         {
             Role userRole = new Role(RoleName.USER);
             roleService.save(userRole);
